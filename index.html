@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TECH IN MY STYLES</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #ffffff, #e0f7fa);
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+            max-width: 700px;
+            width: 90%;
+            animation: fadeInUp 1s ease-in-out;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .logo {
+            width: 120px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 2.8em;
+            margin-bottom: 10px;
+            color: #0077cc;
+        }
+
+        h2 {
+            color: #ff6f00;
+            margin-top: 25px;
+        }
+
+        p {
+            font-size: 1em;
+            text-align: left;
+            line-height: 1.6;
+            color: #444;
+        }
+
+        .checkbox-group {
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .checkbox-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 0.95em;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 28px;
+            background-color: #0077cc;
+            color: white;
+            font-size: 1em;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            cursor: not-allowed;
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
+        .btn.enabled {
+            cursor: pointer;
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .btn:hover.enabled {
+            background-color: #005fa3;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="MY LOGO.png" alt="Tech Logo" class="logo">
+        <h1>TECH IN MY STYLES</h1>
+
+        <h2>Terms and Conditions</h2>
+        <p>
+            By accessing this website, you agree to follow all guidelines, policies, and terms set by TECH IN MY STYLES.
+            Any misuse or violation may result in restricted access or legal action.
+        </p>
+
+        <h2>Privacy Policy</h2>
+        <p>
+            Your personal information is safe with us. We ensure that all user data is stored securely and is not shared
+            with third parties without consent. Our systems are protected with modern encryption and best practices.
+        </p>
+
+        <div class="checkbox-group">
+            <label><input type="checkbox" id="terms"> I agree to the Terms and Conditions</label>
+            <label><input type="checkbox" id="privacy"> I agree to the Privacy Policy</label>
+        </div>
+
+        <a href="https://techinmystyle.netlify.app/" class="btn" id="startBtn">Get Started</a>
+    </div>
+
+    <script>
+        const termsCheckbox = document.getElementById('terms');
+        const privacyCheckbox = document.getElementById('privacy');
+        const startBtn = document.getElementById('startBtn');
+
+        function updateButtonState() {
+            if (termsCheckbox.checked && privacyCheckbox.checked) {
+                startBtn.classList.add('enabled');
+            } else {
+                startBtn.classList.remove('enabled');
+            }
+        }
+
+        termsCheckbox.addEventListener('change', updateButtonState);
+        privacyCheckbox.addEventListener('change', updateButtonState);
+    </script>
+</body>
+</html>
